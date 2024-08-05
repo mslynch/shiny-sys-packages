@@ -21,7 +21,7 @@ def server(input, output, session):
                     f"{stdout.decode()}\n"
                     f"====STDERR====\n"
                     f"{stderr.decode()}")
-        return stdout
+        return stdout.decode()
 
 
 app = App(app_ui, server)
