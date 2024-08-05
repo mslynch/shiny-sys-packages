@@ -10,8 +10,7 @@ def server(input, output, session):
     @render.text
     async def txt():
         proc = await asyncio.create_subprocess_exec(
-            "dpkg-query", "--list",
-            # "apt", "list", "--installed",
+            "dpkg-query", "--list", "--no-pager",
             stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
         )
 
@@ -25,7 +24,8 @@ def server(input, output, session):
                     f"====STDERR====\n"
                     f"{stderr.decode()}")
         print("got packages")
-        return stdout.decode() or "nothing...?"
+
+        return stdout.decode()
 
 
 app = App(app_ui, server)
