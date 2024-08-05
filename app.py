@@ -21,6 +21,7 @@ def server(input, output, session):
                     f"{stdout.decode()}\n"
                     f"====STDERR====\n"
                     f"{stderr.decode()}")
+        print("got packages")
         return stdout.decode() or "nothing...?"
 
 
