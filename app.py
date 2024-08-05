@@ -10,8 +10,8 @@ def server(input, output, session):
     @render.text
     async def txt():
         proc = await asyncio.create_subprocess_exec(
-            # "dpkg-query", "--list",
-            "apt", "list", "--installed",
+            "dpkg-query", "--list",
+            # "apt", "list", "--installed",
             stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
         )
 
