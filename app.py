@@ -13,6 +13,7 @@ def server(input, output, session):
             "dpkg-query", "--list", stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
         )
 
+        print("running command")
         return_code = await proc.wait()
         stdout, stderr = await proc.communicate()
         if return_code != 0:
