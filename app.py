@@ -16,8 +16,13 @@ def server(input, output, session):
         )
 
         print("running command")
-        return_code = await proc.wait()
-        stdout, stderr = await proc.communicate()
+
+        while True:
+            response = await proc.stdout.readline()
+            print(response)
+
+        # return_code = await proc.wait()
+        # stdout, stderr = await proc.communicate()
         if return_code != 0:
             return (f"Error running command.\n"
                     f"====STDOUT====\n"
